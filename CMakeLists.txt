@@ -5,7 +5,13 @@ project("myFirstGame")
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-add_executable(${PROJECT_NAME} main.cpp)
+file(GLOB SRC_FILES "${CMAKE_SOURCE_DIR}/src/*.cpp")
+
+include_directories(
+    "${CMAKE_SOURCE_DIR}/include"
+)
+
+add_executable(${PROJECT_NAME} ${SRC_FILES})
 
 add_subdirectory("raylib")
 
